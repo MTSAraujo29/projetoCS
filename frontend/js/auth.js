@@ -27,6 +27,7 @@ loginForm.addEventListener('submit', async(e) => {
 
         if (response.ok) {
             localStorage.setItem('token', data.token);
+            console.log('Token após login:', localStorage.getItem('token'));
             window.location.href = '/smartutilities';
         } else {
             errorMessage.textContent = data.error;

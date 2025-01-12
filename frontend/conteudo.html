@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conteúdo - Smart Utilities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/smartutilities/css/style.css">
     <link rel="stylesheet" href="/smartutilities/css/conteudo.css">
 </head>
@@ -13,10 +14,11 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="img/logo.png" alt="Logo Smart Utilities">
-                <h1>Smart Utilities</h1>
+                <img src="/smartutilities/assets/img/logo.png" alt="Logo Smart Utilities">
+                <h1 onclick="scrollToTop()" class="logo-title">Smart Utilities</h1>
             </div>
             <div class="nav-buttons">
+                <button onclick="voltarInicio()">Início</button>
                 <button onclick="scrollToSection('mirage')">Mirage</button>
                 <button onclick="scrollToSection('inferno')">Inferno</button>
                 <button onclick="scrollToSection('ancient')">Ancient</button>
@@ -27,7 +29,7 @@
 
     <main>
         <section class="hero">
-            <img src="img/avatar.png" alt="Avatar MTS" class="avatar">
+            <img src="assets/img/eu.png" alt="Avatar MTS" class="avatar">
             <h1>Bem-vindo ao Conteúdo Exclusivo</h1>
             <p>Aqui você encontrará todos os vídeos e tutoriais sobre utilities no CS2.</p>
         </section>
@@ -69,11 +71,34 @@
         </section>
     </main>
 
-    <footer>
-        <p>Copyright © Your Website by MTS 2023</p>
-    </footer>
+    <section class="footer-section">
+        <footer>
+            <p>Copyright © Smart Utilities by MTS 2023</p>
+        </footer>
+    </section>
+
 
     <script src="/smartutilities/js/script.js"></script>
+    <!--
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/smartutilities/login';
+        }
+
+        fetch('/smartutilities/conteudo', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    window.location.href = '/smartutilities/login';
+                }
+            });
+    </script>
+    -->
 </body>
 
 </html>

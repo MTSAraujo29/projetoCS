@@ -23,16 +23,18 @@ function scrollToTop() {
     });
 }
 
+function voltarInicio() {
+    window.location.href = '/smartutilities';
+}
+
 // Função para verificar se usuário está logado e gerenciar botão de conteúdo
 function updateNavButtons() {
     const token = localStorage.getItem('token');
     const navButtons = document.querySelector('.nav-buttons');
 
-    // Limpa todos os botões existentes
     navButtons.innerHTML = '';
 
     if (token) {
-        // Se estiver logado, mostra Conteúdo, Sobre, Assinatura e Logout
         navButtons.innerHTML = `
             <button onclick="openConteudo()">Conteúdo</button>
             <button onclick="scrollToSection('sobre')">Sobre</button>
@@ -40,8 +42,8 @@ function updateNavButtons() {
             <button onclick="logout()">Sair</button>
         `;
     } else {
-        // Se não estiver logado, mostra apenas Sobre, Assinatura e Login
         navButtons.innerHTML = `
+            <button onclick="openConteudo()">Conteúdo</button>
             <button onclick="scrollToSection('sobre')">Sobre</button>
             <button onclick="scrollToSection('assinatura')">Assinatura</button>
             <button onclick="openLogin()">Login</button>

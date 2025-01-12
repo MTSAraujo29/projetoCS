@@ -31,15 +31,10 @@ router.post('/login', async(req, res) => {
         const { email, password } = req.body;
         const user = await prisma.user.findUnique({ where: { email } });
 
-        if (!user) {
-            return res.status(401).json({ error: 'Usuário não encontrado' });
-        }
-
+        // Verifica senha
         const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) {
-            return res.status(401).json({ error: 'Senha incorreta' });
-        }
 
+        // Gera token
         const token = jwt.sign({ userId: user.id },
             process.env.JWT_SECRET, { expiresIn: '7d' }
         );
@@ -91,6 +86,11 @@ router.post('/cadastro', async(req, res) => {
             details: error.message
         });
     }
+});
+
+// Rota para a página de conteúdo (agora pública)
+router.get('/conteudo', (req, res) => {
+    res.sendFile(path.join(projectRoot, 'frontend', 'conteudo.html'));
 });
 
 export default router;

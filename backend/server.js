@@ -1,10 +1,11 @@
 import express from 'express';
-import path from 'path';
-import session from 'express-session';
-import cookieParser from 'cookie-parser';
-import publicRoutes from './routes/public.js';
-import privateRoutes from './routes/privet.js';
-import { fileURLToPath } from 'url';
+import path from 'path'; //serve para manipular caminhos de arquivos
+import session from 'express-session'; //serve para criar e gerenciar sessões do usuário
+import cookieParser from 'cookie-parser'; // Serva para criar e ler cookies do navegador
+import publicRoutes from './routes/public.js'; //serve para criar rotas públicas
+import privateRoutes from './routes/privet.js'; //serve para criar rotas privadas
+import { fileURLToPath } from 'url'; //serve para converter URLs em caminhos de arquivos
+import JWT from 'jsonwebtoken'; //serve para criar e verificar tokens JWT
 
 const __filename = fileURLToPath(
     import.meta.url);
@@ -20,7 +21,7 @@ app.use(cookieParser());
 
 // Configurar sessão
 app.use(session({
-    secret: 'sua_chave_secreta',
+    secret: process.env.JWT_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false } // Em produção, mude para true se usar HTTPS

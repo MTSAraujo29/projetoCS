@@ -69,3 +69,20 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
+.footer-section {
+    background: linear-gradient(135deg, #1e3d59 0%, #2a5580 100%);
+    padding: 1rem;
+    color: white;
+}
+
+.footer-section footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-section p {
+    margin: 0;
+    font-size: 0.9rem;
+}
