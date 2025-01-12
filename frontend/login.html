@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Smart Utilities</title>
+    <link rel="stylesheet" href="/smartutilities/css/style.css">
+    <link rel="stylesheet" href="/smartutilities/css/login.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo Smart Utilities">
+                <h1>Smart Utilities</h1>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="window.location.href='/smartutilities'">Voltar</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Entrar</button>
+            <p class="register-link">Não tem uma conta? <a href="#" onclick="toggleForms()">Cadastre-se</a></p>
+        </form>
+
+        <form class="login-form hidden" id="registerForm">
+            <div class="form-group">
+                <label for="regName">Nome:</label>
+                <input type="text" id="regName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="regEmail">Email:</label>
+                <input type="email" id="regEmail" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="regPassword">Senha:</label>
+                <input type="password" id="regPassword" name="password" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+            <p class="register-link">Já tem uma conta? <a href="#" onclick="toggleForms()">Faça login</a></p>
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script src="/smartutilities/js/auth.js"></script>
+</body>
+
+</html>

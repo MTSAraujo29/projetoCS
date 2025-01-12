@@ -1,0 +1,360 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        background-color: #f8f9fa;
+    }
+    
+    .navbar {
+        background-color: rgba(30, 61, 89, 0.98);
+        padding: 1rem 2rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+    
+    .logo img {
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo img:hover {
+        transform: scale(1.1);
+    }
+    
+    .nav-buttons button {
+        padding: 0.7rem 1.5rem;
+        margin-left: 1.5rem;
+        border: none;
+        border-radius: 25px;
+        background-color: #17b978;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 2px 10px rgba(23, 185, 120, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .nav-buttons button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(23, 185, 120, 0.3);
+        background-color: #15a86c;
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, #17b978 0%, #15a86c 100%);
+        padding: 10rem 2rem 6rem;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/smartutilities/assets/img/pattern.png');
+        opacity: 0.1;
+    }
+    
+    .avatar {
+        width: 180px;
+        border-radius: 50%;
+        margin-bottom: 2.5rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        border: 5px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .avatar:hover {
+        transform: scale(1.05);
+    }
+    
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        padding: 3rem;
+    }
+    
+    .video-item {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+    
+    .video-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .video-item video {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    section {
+        padding: 4rem 2rem;
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem 0;
+    }
+    
+    .line {
+        height: 2px;
+        width: 120px;
+        background: linear-gradient(90deg, transparent, currentColor, transparent);
+    }
+    
+    .star {
+        color: white;
+        font-size: 28px;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    
+    .sobre-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    
+    .sobre-content p {
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+    
+    .sobre.hero {
+        margin-top: 2rem;
+        background-color: #17b978;
+        color: white;
+    }
+    
+    .footer-section {
+        background: linear-gradient(135deg, #1e3d59 0%, #2a5580 100%);
+        padding: 1rem;
+        color: white;
+    }
+    
+    .footer-section footer {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .footer-section p {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    
+    .assinatura.hero {
+        background-color: white;
+        color: #333;
+        text-align: center;
+        background: none;
+        position: static;
+        overflow: visible;
+    }
+    
+    .assinatura.hero::before {
+        display: none;
+    }
+    
+    .assinatura .divider .line {
+        background-color: #1e3d59;
+    }
+    
+    .videos .divider .star {
+        background-color: #1e3d59;
+    }
+    
+    .assinatura .divider .line {
+        background-color: #1e3d59;
+    }
+    
+    .assinatura .divider .star {
+        color: #17b978;
+    }
+    
+    .assinatura h2 {
+        color: #1e3d59;
+    }
+    
+    .assinatura-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+    }
+    
+    .assinatura-content h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #1e3d59;
+    }
+    
+    .assinatura-intro {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        text-align: justify;
+    }
+    
+    .beneficios {
+        margin: 2rem 0;
+    }
+    
+    .beneficio-item {
+        background: #17b978;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(23, 185, 120, 0.2);
+        transition: transform 0.3s ease;
+        border-left: 4px solid #1e3d59;
+        text-align: left;
+        color: white;
+        margin-bottom: 1.5rem;
+    }
+    
+    .beneficio-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 8px 25px rgba(23, 185, 120, 0.3);
+    }
+    
+    .beneficio-item p {
+        margin: 0;
+        line-height: 1.6;
+    }
+    
+    .destaque {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background: #17b978;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 5px 15px rgba(23, 185, 120, 0.2);
+    }
+    
+    .assinatura-intro,
+    .assinatura-footer {
+        background: #17b978;
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+        text-align: justify;
+        line-height: 1.6;
+        box-shadow: 0 5px 15px rgba(23, 185, 120, 0.2);
+    }
+    
+    .assinar-button {
+        padding: 1.2rem 3rem;
+        border-radius: 30px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        background: linear-gradient(135deg, #1e3d59 0%, #2a5580 100%);
+        box-shadow: 0 5px 15px rgba(30, 61, 89, 0.3);
+        transition: all 0.3s ease;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .assinar-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(30, 61, 89, 0.4);
+    }
+    /* Estilo específico para o h2 da seção de vídeos */
+    
+    .videos h2 {
+        color: #1e3d59;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    
+    section.videos h2 {
+        color: #1e3d59;
+    }
+    /* Estilo para o h1 da seção hero */
+    
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    /* Estilo para o parágrafo da seção hero */
+    
+    .hero p {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    /* Estilo para o h2 da seção sobre */
+    
+    .sobre h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    /* Estilo para o h1 da seção assinatura */
+    
+    .assinatura-content h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #1e3d59;
+        margin-bottom: 2rem;
+    }
+    
+    .logo-title {
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+    
+    .logo-title:hover {
+        color: #17b978;
+    }

@@ -1,0 +1,71 @@
+/* Estilos específicos para a página de conteúdo */
+
+.map-section {
+    padding: 4rem 2rem;
+    background-color: #f5f5f5;
+    margin: 2rem 0;
+}
+
+.map-section h2 {
+    color: #1e3d59;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-item video {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.video-item h3 {
+    color: #1e3d59;
+    margin-bottom: 0.5rem;
+}
+
+.video-item p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+
+/* Ajustes para a seção hero */
+
+.hero {
+    background-color: #17b978;
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
