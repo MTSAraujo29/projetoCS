@@ -358,3 +358,29 @@
     .logo-title:hover {
         color: #17b978;
     }
+    
+    .success-container {
+        max-width: 600px;
+        margin: 100px auto;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .success-container h1 {
+        color: #17b978;
+        margin-bottom: 1rem;
+    }
+    
+    .success-container button {
+        background-color: #17b978;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 2rem;
+    }
+    
+    .success-container button:hover {
+        background-color: #149b63;
+    }

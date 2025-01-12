@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { stripe } from '../config/stripe.js';
 
 const prisma = new PrismaClient();
 const __filename = fileURLToPath(
@@ -34,9 +35,9 @@ router.post('/login', async(req, res) => {
         // Verifica senha
         const validPassword = await bcrypt.compare(password, user.password);
 
-        // Gera token
+        // Gera token com expiração de 1 minuto
         const token = jwt.sign({ userId: user.id },
-            process.env.JWT_SECRET, { expiresIn: '7d' }
+            process.env.JWT_SECRET, { expiresIn: '1m' } // Mudando para 1 minuto
         );
 
         res.json({ token });
@@ -74,8 +75,9 @@ router.post('/cadastro', async(req, res) => {
 
         console.log('Usuário criado com sucesso:', user.id);
 
+        // Gera token com expiração de 1 minuto
         const token = jwt.sign({ userId: user.id },
-            process.env.JWT_SECRET, { expiresIn: '7d' }
+            process.env.JWT_SECRET, { expiresIn: '1m' } // Mudando para 1 minuto
         );
 
         res.json({ token });
@@ -91,6 +93,11 @@ router.post('/cadastro', async(req, res) => {
 // Rota para a página de conteúdo (agora pública)
 router.get('/conteudo', (req, res) => {
     res.sendFile(path.join(projectRoot, 'frontend', 'conteudo.html'));
+});
+
+// Rota para página de sucesso
+router.get('/success', (req, res) => {
+    res.sendFile(path.join(projectRoot, 'frontend', 'success.html'));
 });
 
 export default router;

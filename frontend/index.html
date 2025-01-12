@@ -7,6 +7,7 @@
     <title>Smart Utilities</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -85,10 +86,10 @@
             </div>
 
             <div class="assinatura-content">
-                <h1>Assinatura Vitalícia por Apenas R$10?</h1>
+                <h1>Assinatura Vitalícia por Apenas R$29,90?</h1>
 
                 <p class="assinatura-intro">
-                    Que tal aproveitar todo o conteúdo exclusivo do nosso curso de Counter-Strike e ainda fazer parte de uma comunidade do discord incrível por um preço simbólico? Com a assinatura vitalícia de apenas R$10, você garante acesso a diversos benefícios, como:
+                    Que tal aproveitar todo o conteúdo exclusivo do nosso curso de Counter-Strike e ainda fazer parte de uma comunidade do discord incrível por um preço simbólico? Com a assinatura vitalícia de apenas R$29,90, você garante acesso a diversos benefícios, como:
                 </p>
 
                 <div class="beneficios">
@@ -107,16 +108,14 @@
                 </div>
 
                 <p class="destaque">
-                    E o melhor de tudo: por apenas R$10, uma única vez, você terá acesso vitalício, sem mensalidades ou taxas escondidas.
+                    E o melhor de tudo: por apenas R$29,90, uma única vez, você terá acesso vitalício, sem mensalidades ou taxas escondidas.
                 </p>
 
                 <p class="assinatura-footer">
                     Aproveite esta oportunidade única de evoluir no jogo que você ama e fazer parte de uma comunidade que compartilha da mesma paixão. Invista no seu aprendizado e diversão por um preço super acessível.
                 </p>
 
-                <button class="assinar-button">
-                    Assine agora e comece a aproveitar todos os benefícios!
-                </button>
+                <button class="assinar-button" onclick="handleCheckout()">Assinar Agora</button>
             </div>
         </section>
     </main>
