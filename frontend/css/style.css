@@ -94,13 +94,16 @@
     }
     
     .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
+        display: flex;
+        justify-content: center;
         padding: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     
     .video-item {
+        width: 100%;
+        max-width: 800px;
         background: white;
         padding: 1.5rem;
         border-radius: 15px;
@@ -116,7 +119,7 @@
     .video-item video {
         width: 100%;
         border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
     }
     
     section {
@@ -383,4 +386,49 @@
     
     .success-container button:hover {
         background-color: #149b63;
+    }
+    /* Adicione media queries para telas menores */
+    
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            padding: 1rem;
+        }
+        .nav-buttons {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .nav-buttons button {
+            margin: 0;
+            padding: 0.5rem 1rem;
+        }
+        .hero {
+            padding: 8rem 1rem 4rem;
+        }
+        .hero h1 {
+            font-size: 2rem;
+        }
+        .hero p {
+            font-size: 1rem;
+        }
+        .avatar {
+            width: 120px;
+        }
+        .assinatura-content {
+            padding: 2rem 1rem;
+        }
+        .beneficio-item {
+            padding: 1.5rem;
+        }
+        .assinar-button {
+            width: 100%;
+            padding: 1rem;
+        }
+        .success-container {
+            margin: 80px 1rem;
+            padding: 1.5rem;
+        }
     }

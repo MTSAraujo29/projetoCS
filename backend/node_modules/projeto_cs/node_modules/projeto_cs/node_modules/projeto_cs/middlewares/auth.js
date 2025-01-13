@@ -5,15 +5,17 @@ const prisma = new PrismaClient();
 
 export const verificarAutenticacao = async(req, res, next) => {
     try {
-        console.log('=== Início da verificação de autenticação ===');
-        console.log('Headers completos:', req.headers);
-        console.log('Header Authorization:', req.headers.authorization);
+        const authHeader = req.headers.authorization;
+        console.log('Header de autorização:', authHeader);
 
-        const token = req.headers.authorization ? req.headers.authorization.split(' ')[1] : null;
+        if (!authHeader) {
+            return res.status(401).json({ error: 'Token não fornecido' });
+        }
+
+        const token = authHeader.split(' ')[1];
         console.log('Token extraído:', token);
 
         if (!token) {
-            console.log('Token não fornecido');
             return res.status(401).json({ error: 'Token não fornecido' });
         }
 
@@ -23,15 +25,12 @@ export const verificarAutenticacao = async(req, res, next) => {
         const user = await prisma.user.findUnique({
             where: { id: decoded.userId }
         });
-        console.log('Usuário encontrado:', user ? 'Sim' : 'Não');
 
         if (!user) {
-            console.log('Usuário não encontrado');
             return res.status(401).json({ error: 'Usuário não encontrado' });
         }
 
         req.user = user;
-        console.log('=== Autenticação bem-sucedida ===');
         next();
     } catch (error) {
         console.error('Erro de autenticação:', error);

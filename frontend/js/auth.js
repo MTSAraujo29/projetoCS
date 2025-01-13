@@ -16,6 +16,7 @@ loginForm.addEventListener('submit', async(e) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify({
                 email: document.getElementById('email').value,
@@ -27,12 +28,13 @@ loginForm.addEventListener('submit', async(e) => {
 
         if (response.ok) {
             localStorage.setItem('token', data.token);
-            console.log('Token após login:', localStorage.getItem('token'));
+            console.log('Token armazenado:', data.token);
             window.location.href = '/smartutilities';
         } else {
             errorMessage.textContent = data.error;
         }
     } catch (error) {
+        console.error('Erro completo:', error);
         errorMessage.textContent = 'Erro ao fazer login';
     }
 });

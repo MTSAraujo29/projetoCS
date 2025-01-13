@@ -14,10 +14,13 @@ function logout() {
 
 function openConteudo() {
     const token = localStorage.getItem('token');
+    console.log('Token no localStorage:', token);
+
     if (!token) {
-        window.location.href = '/smartutilities/login';
+        openLogin();
         return;
     }
+
     window.location.href = '/smartutilities/conteudo';
 }
 
@@ -115,5 +118,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkoutButton = document.querySelector('.assinar-button');
     if (checkoutButton) {
         checkoutButton.addEventListener('click', handleCheckout);
+    }
+});
+
+// Função para aplicar os filtros
+function applyFilters() {
+    const mapFilter = document.getElementById('map-filter').value;
+    const utilityFilter = document.getElementById('utility-filter').value;
+
+    // Pega todos os vídeos
+    const videoItems = document.querySelectorAll('.video-item');
+
+    videoItems.forEach(item => {
+        const mapSection = item.closest('.map-section');
+        const mapId = mapSection.id;
+        const utilityType = getUtilityType(item.querySelector('h3').textContent);
+
+        const mapMatch = mapFilter === 'all' || mapId === mapFilter;
+        const utilityMatch = utilityFilter === 'all' || utilityType === utilityFilter;
+
+        // Mostra ou esconde baseado nos filtros
+        if (mapMatch && utilityMatch) {
+            item.classList.remove('hidden-by-filter');
+            mapSection.classList.remove('hidden-by-filter');
+        } else {
+            item.classList.add('hidden-by-filter');
+            // Esconde a seção se todos os itens estiverem escondidos
+            const visibleItems = mapSection.querySelectorAll('.video-item:not(.hidden-by-filter)');
+            if (visibleItems.length === 0) {
+                mapSection.classList.add('hidden-by-filter');
+            }
+        }
+    });
+}
+
+// Função auxiliar para determinar o tipo de utility baseado no título
+function getUtilityType(title) {
+    title = title.toLowerCase();
+    if (title.includes('smoke')) return 'smoke';
+    if (title.includes('flash')) return 'flash';
+    if (title.includes('molotov')) return 'molotov';
+    if (title.includes('he') || title.includes('granada')) return 'he';
+    return 'other';
+}
+
+// Adicione event listeners para os filtros
+document.addEventListener('DOMContentLoaded', () => {
+    const mapFilter = document.getElementById('map-filter');
+    const utilityFilter = document.getElementById('utility-filter');
+
+    if (mapFilter && utilityFilter) {
+        mapFilter.addEventListener('change', applyFilters);
+        utilityFilter.addEventListener('change', applyFilters);
     }
 });

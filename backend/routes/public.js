@@ -32,16 +32,24 @@ router.post('/login', async(req, res) => {
         const { email, password } = req.body;
         const user = await prisma.user.findUnique({ where: { email } });
 
-        // Verifica senha
-        const validPassword = await bcrypt.compare(password, user.password);
+        if (!user) {
+            return res.status(401).json({ error: 'Usuário não encontrado' });
+        }
 
-        // Gera token com expiração de 1 minuto
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) {
+            return res.status(401).json({ error: 'Senha incorreta' });
+        }
+
+        // Gera token
         const token = jwt.sign({ userId: user.id },
-            process.env.JWT_SECRET, { expiresIn: '1m' } // Mudando para 1 minuto
+            process.env.JWT_SECRET, { expiresIn: '1m' }
         );
 
+        console.log('Token gerado:', token); // Debug
         res.json({ token });
     } catch (error) {
+        console.error('Erro no login:', error);
         res.status(500).json({ error: 'Erro ao fazer login' });
     }
 });

@@ -34,15 +34,58 @@
             <p>Aqui você encontrará todos os vídeos e tutoriais sobre utilities no CS2.</p>
         </section>
 
+        <section class="filter-section">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="map-filter">Mapa:</label>
+                    <select id="map-filter">
+                        <option value="all">Todos</option>
+                        <option value="mirage">Mirage</option>
+                        <option value="inferno">Inferno</option>
+                        <option value="ancient">Ancient</option>
+                        <option value="overpass">Overpass</option>
+                        <option value="vertigo">Vertigo</option>
+                        <option value="nuke">Nuke</option>
+                        <option value="anubis">Anubis</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="utility-filter">Utility:</label>
+                    <select id="utility-filter">
+                        <option value="all">Todas</option>
+                        <option value="smoke">Smoke</option>
+                        <option value="flash">Flash</option>
+                        <option value="molotov">Molotov</option>
+                        <option value="he">Granada HE</option>
+                    </select>
+                </div>
+                <button onclick="applyFilters()" class="filter-button">Aplicar Filtros</button>
+            </div>
+        </section>
+
         <section id="mirage" class="map-section">
             <h2>Mirage</h2>
             <div class="video-grid">
                 <div class="video-item">
-                    <video src="videos/mirage1.mp4" controls></video>
+                    <video src="/smartutilities/assets/video/1.mp4" controls></video>
                     <h3>Smoke Janela Mid</h3>
                     <p>Aprenda a melhor smoke para janela do meio.</p>
                 </div>
-                <!-- Mais vídeos serão adicionados aqui -->
+                <div class="video-item">
+                    <video src="assets/video/2.mp4" controls></video>
+                    <h3>Flash Palace</h3>
+                    <p>Flash efetiva para entrar no palace.</p>
+                </div>
+                <div class="video-item">
+                    <video src="assets/video/3.mp4" controls></video>
+                    <h3>Molotov Connector</h3>
+                    <p>Molotov segura para limpar connector.</p>
+                </div>
+                <div class="video-item">
+                    <video src="assets/video/4.mp4" controls></video>
+                    <h3>HE Grenade Apps</h3>
+                    <p>Granada de dano para apps.</p>
+                </div>
             </div>
         </section>
 
@@ -50,11 +93,25 @@
             <h2>Inferno</h2>
             <div class="video-grid">
                 <div class="video-item">
-                    <video src="videos/inferno1.mp4" controls></video>
+                    <video src="assets/video/5.mp4" controls></video>
                     <h3>Flash Banana</h3>
                     <p>Flash perfeita para entrar na Banana como T.</p>
                 </div>
-                <!-- Mais vídeos serão adicionados aqui -->
+                <div class="video-item">
+                    <video src="assets/video/6.mp4" controls></video>
+                    <h3>Smoke Library</h3>
+                    <p>Smoke para cobrir library.</p>
+                </div>
+                <div class="video-item">
+                    <video src="assets/video/7.mp4" controls></video>
+                    <h3>Molotov Dark</h3>
+                    <p>Molotov para limpar dark.</p>
+                </div>
+                <div class="video-item">
+                    <video src="assets/video/8.mp4" controls></video>
+                    <h3>HE Grenade Apps</h3>
+                    <p>Granada de dano para apps.</p>
+                </div>
             </div>
         </section>
 
@@ -62,11 +119,25 @@
             <h2>Ancient</h2>
             <div class="video-grid">
                 <div class="video-item">
-                    <video src="videos/ancient1.mp4" controls></video>
+                    <video src="assets/video/9.mp4" controls></video>
                     <h3>Molotov Caverna</h3>
                     <p>Molotov segura para limpar a caverna.</p>
                 </div>
-                <!-- Mais vídeos serão adicionados aqui -->
+                <div class="video-item">
+                    <video src="assets/video/10.mp4" controls></video>
+                    <h3>Smoke Mid</h3>
+                    <p>Smoke para controlar mid.</p>
+                </div>
+                <div class="video-item">
+                    <video src="assets/video/11.mp4" controls></video>
+                    <h3>Flash Donut</h3>
+                    <p>Flash para entrar donut.</p>
+                </div>
+                <div class="video-item">
+                    <video src="assets/video/12.mp4" controls></video>
+                    <h3>HE Grenade Ramp</h3>
+                    <p>Granada de dano para ramp.</p>
+                </div>
             </div>
         </section>
     </main>
@@ -77,28 +148,7 @@
         </footer>
     </section>
 
-
     <script src="/smartutilities/js/script.js"></script>
-    <!--
-    <script>
-        const token = localStorage.getItem('token');
-        if (!token) {
-            window.location.href = '/smartutilities/login';
-        }
-
-        fetch('/smartutilities/conteudo', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    window.location.href = '/smartutilities/login';
-                }
-            });
-    </script>
-    -->
 </body>
 
 </html>

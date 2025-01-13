@@ -1,8 +1,20 @@
 import Stripe from 'stripe';
+import dotenv from 'dotenv';
 
-const stripeSecretKey = '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';
+// Carrega as variáveis de ambiente
+dotenv.config();
 
-export const stripe = new Stripe(stripeSecretKey, {
-    apiVersion: '2023-10-16',
-    typescript: false
+// Verifica se a chave do Stripe existe
+if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY não encontrada');
+}
+
+// Configura o Stripe com a chave secreta
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2023-10-16', // Versão mais recente da API
+    typescript: false,
+    appInfo: {
+        name: 'Smart Utilities',
+        version: '1.0.0'
+    }
 });

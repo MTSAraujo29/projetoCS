@@ -15,10 +15,9 @@
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
 }
 
 .video-item {
@@ -85,4 +84,83 @@
 .footer-section p {
     margin: 0;
     font-size: 0.9rem;
+}
+
+
+/* Estilos para a seção de filtros */
+
+.filter-section {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #1e3d59;
+}
+
+.filter-group select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 200px;
+    font-size: 1rem;
+}
+
+.filter-button {
+    padding: 0.7rem 2rem;
+    background-color: #17b978;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.filter-button:hover {
+    background-color: #149b63;
+}
+
+
+/* Adicione classe para esconder elementos filtrados */
+
+.hidden-by-filter {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .filter-group select {
+        min-width: 100%;
+    }
+    .filter-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
 }
