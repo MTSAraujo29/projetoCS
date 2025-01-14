@@ -5,8 +5,9 @@
     "type": "module",
     "scripts": {
         "start": "node backend/server.js",
-        "build": "echo 'No build step needed'",
-        "dev": "node backend/server.js"
+        "build": "npx prisma generate",
+        "dev": "node backend/server.js",
+        "postinstall": "prisma generate"
     },
     "keywords": [],
     "author": "",
