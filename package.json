@@ -17,7 +17,6 @@
         "express-session": "^1.18.1",
         "jsonwebtoken": "^9.0.2",
         "path": "^0.12.7",
-        "projeto_cs": "file:",
         "stripe": "^17.5.0"
     },
     "devDependencies": {
