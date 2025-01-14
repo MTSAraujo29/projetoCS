@@ -37,6 +37,11 @@ app.use('/smartutilities', express.static(path.join(projectRoot, 'frontend'), {
 }));
 app.use(express.static(path.join(projectRoot, 'frontend')));
 
+// Adicione a rota de healthcheck antes de todas as outras rotas
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+});
+
 // Usar as rotas públicas com prefixo /smartutilities
 app.use('/smartutilities', publicRoutes);
 
@@ -46,11 +51,6 @@ app.use('/smartutilities', privateRoutes);
 // Rota principal redirecionando para /smartutilities
 app.get('/', (req, res) => {
     res.redirect('/smartutilities');
-});
-
-// Adicione uma rota de healthcheck
-app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok' });
 });
 
 const PORT = process.env.PORT || 3000;
