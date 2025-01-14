@@ -5,8 +5,7 @@
     "type": "module",
     "scripts": {
         "start": "node backend/server.js",
-        "build": "npx prisma generate",
-        "dev": "node backend/server.js",
+        "build": "prisma generate",
         "postinstall": "prisma generate"
     },
     "keywords": [],
