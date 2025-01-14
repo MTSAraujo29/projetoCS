@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser';
 import publicRoutes from './routes/public.js';
 import privateRoutes from './routes/privet.js';
 import { fileURLToPath } from 'url';
-import JWT from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 // Carrega as variáveis de ambiente
@@ -18,6 +17,11 @@ const projectRoot = path.join(__dirname, '..');
 
 const app = express();
 
+// Healthcheck para o Render
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok' });
+});
+
 // Middleware para processar JSON
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
@@ -28,19 +32,12 @@ app.use(session({
     secret: process.env.JWT_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }
+    cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 
 // Configurar pasta estática para arquivos frontend
-app.use('/smartutilities', express.static(path.join(projectRoot, 'frontend'), {
-    maxAge: '1h'
-}));
+app.use('/smartutilities', express.static(path.join(projectRoot, 'frontend')));
 app.use(express.static(path.join(projectRoot, 'frontend')));
-
-// Adicione a rota de healthcheck antes de todas as outras rotas
-app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok' });
-});
 
 // Usar as rotas públicas com prefixo /smartutilities
 app.use('/smartutilities', publicRoutes);
