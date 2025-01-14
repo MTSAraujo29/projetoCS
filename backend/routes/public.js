@@ -26,6 +26,7 @@ router.get('/login', (req, res) => {
     res.sendFile(path.join(projectRoot, 'frontend', 'login.html'));
 });
 
+
 // Rota para processar login
 router.post('/login', async(req, res) => {
     try {
